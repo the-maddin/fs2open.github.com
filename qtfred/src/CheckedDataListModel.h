@@ -88,6 +88,10 @@ public:
 			return QVariant();
 	}
 
+	inline const T& internalData(const QModelIndex &index) const {
+		return items[static_cast<size_t>(index.row())]._internalData;
+	}
+
 	bool setData(const QModelIndex &index, const QVariant &value,
 				 int role = Qt::EditRole) override {
 		if(!index.isValid() || role != Qt::CheckStateRole)
