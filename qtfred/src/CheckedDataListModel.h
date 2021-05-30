@@ -41,14 +41,14 @@ public:
 
 	template<typename Container, typename InputIterator>
 	CheckedDataListModel(const Container &c,
-						 RowData (*translatorFn)(InputIterator &it),
+						 RowData (*translatorFn)(const InputIterator &it),
 						 QObject *parent = nullptr, size_t reserve = 0) :
 		CheckedDataListModel(c.cbegin(), c.cend(), translatorFn, parent, reserve ? reserve : c.size())
 	{}
 
 	template<typename InputIterator>
 	CheckedDataListModel(InputIterator first, InputIterator last,
-						 RowData (*translatorFn)(InputIterator &it),
+						 RowData (*translatorFn)(const InputIterator &it),
 						 QObject *parent = nullptr, size_t reserve = 30) :
 		QAbstractListModel(parent)
 	{
